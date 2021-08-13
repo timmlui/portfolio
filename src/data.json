@@ -1,0 +1,98 @@
+{
+  "about": {
+    "phrase": "Hello, world! I'm a developer and designer.",
+    "origin": ["Toronto, ON", "Hong Kong, HK"],
+    "education": "University of Toronto, St. George",
+    "major": "Computer Science",
+    "resume": "timothylui.pdf",
+    "email": "lui.timm@gmail.com",
+    "socialMedia": {
+      "instagram": "timmlui"
+    },
+    "interests": [
+      "Design",
+      "Code",
+      "matcha",
+      "piano",
+      "calisthenics",
+      "brunch"
+    ]
+  },
+  "education": [
+    {
+      "school": "University of Toronto",
+      "link": "https://www.utoronto.ca/",
+      "duration": "2014 - 2019",
+      "iconSrc": "img/companies/ideo-3.png",
+      "location": "Toronto, ON",
+      "degree": "Computer Science, B.S. (Specialist)",
+      "courses": [
+        "Object-Oriented Programming",
+        "Principles of Software Development",
+        "Data Structures and Algorithms",
+        "Artificial Intelligence",
+        "Computer Networks and Technology",
+        "Human Language and Computer Interaction",
+        "Mobile Application Development",
+        "Design and Construction of Large Software Systems",
+        "Advanced Web Technologies"
+      ],
+      "tag": {
+        "skills": [
+          "Java",
+          "Javascript",
+          "HTML",
+          "CSS",
+          "Python",
+          "Git"
+        ]
+      }
+    }
+  ],
+  "workExperiences": [
+    {
+      "companyName": "Publicis Sapient",
+      "link": "https://www.publicissapient.com/",
+      "duration": "2019 - Current",
+      "iconSrc": "img/companies/ideo-3.png",
+      "location": "Toronto, ON",
+      "title": "Associate Software Engineer",
+      "tag": {
+        "skills": [
+          "HTMl",
+          "SASS/CSS",
+          "React",
+          "Java"
+        ],
+        "techs": [
+          "AEM",
+          "Git",
+          "Sketch"
+        ]
+      },
+      "description": "text here"
+    },
+    {
+      "companyName": "Upstream Works Software Ltd",
+      "link": "https://www.upstreamworks.com/",
+      "duration": "2017 - 2018",
+      "iconSrc": "img/companies/ideo-3.png",
+      "location": "Vaughan, ON",
+      "title": "Software Developer Intern",
+      "tag": {
+        "skills": [
+          "C#",
+          "SQL",
+          "HTMl",
+          "CSS",
+          "Angular"
+        ],
+        "techs": [
+          "Git",
+          "Twilio"
+        ]
+      },
+      "description": "text here"
+    }
+  ]
+}
