@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/alt-text */
 import React from 'react';
 
 function WorkExperience(props) {
@@ -15,9 +16,9 @@ function WorkExperience(props) {
   const { skills = [], techs = [] } = tag;
 
   return (
-    <div class="workExperienceCard">
+    <div class="work-experience-card">
       <a target="_blank" href={link}>
-        <img class="icon" src={iconSrc} />
+        <img class="icon" src={require(`../assets/${iconSrc}`)} />
       </a>
       <b>{companyName}</b>
       <span class="right"><i>{duration}</i></span><br/>

@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/alt-text */
 import React from 'react';
 
 function Education(props) {
@@ -15,9 +16,9 @@ function Education(props) {
   const { skills = [], techs = [] } = tag;
 
   return (
-    <div class="educationCard">
+    <div class="education-card">
       <a target="_blank" href={link}>
-        <img class="icon" src={iconSrc} />
+        <img class="icon" src={require(`../assets/${iconSrc}`)} />
       </a>
       <b>{school}</b>
       <span class="right"><i>{duration}</i></span>

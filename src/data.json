@@ -1,6 +1,6 @@
 {
   "about": {
-    "phrase": "Hello, world! I'm a developer and designer.",
+    "phrase": "Hello, world! I'm a web developer.",
     "origin": ["Toronto, ON", "Hong Kong, HK"],
     "education": "University of Toronto, St. George",
     "major": "Computer Science",
@@ -10,12 +10,12 @@
       "instagram": "timmlui"
     },
     "interests": [
-      "Design",
-      "Code",
-      "matcha",
-      "piano",
+      "basketball",
+      "bouldering",
+      "brunch",
       "calisthenics",
-      "brunch"
+      "hot yoga",
+      "piano"
     ]
   },
   "education": [
@@ -23,7 +23,7 @@
       "school": "University of Toronto",
       "link": "https://www.utoronto.ca/",
       "duration": "2014 - 2019",
-      "iconSrc": "img/companies/ideo-3.png",
+      "iconSrc": "education/uoft.png",
       "location": "Toronto, ON",
       "degree": "Computer Science, B.S. (Specialist)",
       "courses": [
@@ -39,12 +39,12 @@
       ],
       "tag": {
         "skills": [
+          "C#",
           "Java",
-          "Javascript",
-          "HTML",
-          "CSS",
+          "JavaScript",
           "Python",
-          "Git"
+          "SQL/NoSQL",
+          "Swift"
         ]
       }
     }
@@ -54,45 +54,72 @@
       "companyName": "Publicis Sapient",
       "link": "https://www.publicissapient.com/",
       "duration": "2019 - Current",
-      "iconSrc": "img/companies/ideo-3.png",
+      "iconSrc": "company/publicis-sapient.jpg",
       "location": "Toronto, ON",
       "title": "Associate Software Engineer",
       "tag": {
         "skills": [
+          "React",
+          "JavaScript",
           "HTMl",
           "SASS/CSS",
-          "React",
           "Java"
         ],
         "techs": [
           "AEM",
+          "DSM",
           "Git",
-          "Sketch"
+          "InVision",
+          "Sketch",
+          "Storybook"
         ]
       },
-      "description": "text here"
+      "description": "Working directly with clients, designers, and product managers to build and ship digital products. Architecting and building a Design System of the Front-End for FCA web application. Improving and maintaining the Shopping Tools experience with Accessibility-focused approaches. And contributing to a variety of internal and client projects."
     },
     {
       "companyName": "Upstream Works Software Ltd",
       "link": "https://www.upstreamworks.com/",
       "duration": "2017 - 2018",
-      "iconSrc": "img/companies/ideo-3.png",
+      "iconSrc": "company/upstream-works.jpg",
       "location": "Vaughan, ON",
-      "title": "Software Developer Intern",
+      "title": "Full Stack Developer Intern",
       "tag": {
         "skills": [
+          "Angular",
+          "JavaScript",
           "C#",
           "SQL",
           "HTMl",
-          "CSS",
-          "Angular"
+          "CSS"
         ],
         "techs": [
           "Git",
+          "SSMS",
+          "SwaggerAPI",
           "Twilio"
         ]
       },
-      "description": "text here"
+      "description": "Engaged in the development of Upstream Work's Digital Desktop application. Writing and managing APIs, while documenting their lifecycle through SwaggerAPI. Programming SQL stored procedures for database queries and cleanup. Maintaining the web application through design and unit test suites."
+    }
+  ],
+  "projects": [
+    {
+      "name": "Array Sorter Visualization",
+      "image": "img/portfolio/spellsound.png",
+      "bigImage": true,
+      "description": "Created a series of array sorting visualizations that covers different sorting algorithms vs different levels of how sorted an array is."
+    },
+    {
+      "name": "SpellSound",
+      "image": "img/portfolio/spellsound.png",
+      "bigImage": false,
+      "description": "Developed cross-platform mobile app with AudD audio recognition API to detect and pull song metadata and lyrics."
+    },
+    {
+      "name": "Internet Pricing Data Visualization",
+      "image": "img/portfolio/spellsound.png",
+      "bigImage": false,
+      "description": "Generated infographics and interactive visualizations on Internet Pricing to capture trends and anomalies in large datasets."
     }
   ]
 }

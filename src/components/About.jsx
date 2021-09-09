@@ -9,7 +9,7 @@ function About(props) {
     resume,
     email,
     socialMedia = {},
-    interests,
+    interests = [],
     latestWorkExperience
   } = props;
 
@@ -46,10 +46,11 @@ function About(props) {
               <br/><br/>
             </span>
             {`~ $`} Timothy.workExperience.latest<br/>
-            <span class="answer">&nbsp;&nbsp;=&gt; Latest Work Experience<br/>
-                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; company: "Publicis Sapient"<br/>
-                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; role: "Associate Software Engineer"<br/>
-                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; startDate: "July 2019"<br/>
+            <span class="answer">
+              {`=>`} Latest Work Experience<br/>
+              &nbsp;&nbsp;&nbsp;&nbsp; company: "{companyName}"<br/>
+              &nbsp;&nbsp;&nbsp;&nbsp; role: "{title}"<br/>
+              &nbsp;&nbsp;&nbsp;&nbsp; duration: "{duration}"<br/>
             <br/></span>
             {`~ $`} Timothy.resume<br/>
             <span class="answer">
@@ -68,7 +69,9 @@ function About(props) {
             </span>
             {`~ $`} Timothy.interests<br/>
             <span class="answer">
-              {`=>`} ["Design", "Code", "matcha", "piano", "calisthenics", "brunch"]
+              {`=> [`}
+              "{interests[0]}", "{interests[1]}", "{interests[2]}", "{interests[3]}", "{interests[4]}", "{interests[5]}"
+              {`]`}
               <br/><br/>
             </span>
           </div>
