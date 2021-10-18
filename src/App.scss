@@ -7,17 +7,25 @@
   // cursor: none;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: Circular Pro Book,sans-serif;
   font-size: 16px;
   line-height: 1;
+  background-color: #000;
 }
 
 .container {
   display: grid;
   /* justify-content: center; */
-  background-color: #1c1c21;
+  // background-color: #1c1c21;
 }
+
+// Header
+// -----------------------------------------
 
 .header-nav {
   display: grid;
@@ -83,12 +91,68 @@ body {
   }
 }
 
+// Name Plate
+// -----------------------------------------
+
 .name-plate {
   height: 100vh;
   display: grid;
   justify-content: center;
   align-items: center;
-  z-index: 1;
+  z-index: 5;
+  background-color: #000;
+
+
+  #name-svg {
+    animation: line-fill 0.5s ease forwards 3.5s;
+
+    path:nth-child(1) { // T
+      animation: line-anim 2s ease forwards .6s;
+    }
+    path:nth-child(2) { // I
+      animation: line-anim 2s ease forwards 1.5s;
+    }
+    path:nth-child(3) { // M
+      animation: line-anim 2s ease forwards 1.2s;
+    }
+    path:nth-child(4) { // O
+      animation: line-anim 2s ease forwards 0s;
+    }
+    path:nth-child(5) { // T
+      animation: line-anim 2s ease forwards .6s;
+    }
+    path:nth-child(6) { // H
+      animation: line-anim 2s ease forwards 1.8s;
+    }
+    path:nth-child(7) { // Y
+      animation: line-anim 2s ease forwards .9s;
+    }
+    path:nth-child(8) { // L
+      animation: line-anim 2s ease forwards .3s;
+    }
+    path:nth-child(9) { // U
+      animation: line-anim 2s ease forwards .3s;
+    }
+    path:nth-child(10) { // I
+      animation: line-anim 2s ease forwards 1.5s;
+    }
+  }
+
+  @keyframes line-anim {
+    to {
+      stroke-dasharray: 0;
+      stroke-dashoffset: 0;
+    }
+  }
+
+  @keyframes line-fill {
+    from {
+      fill: transparent;
+    }
+    to {
+      fill: #e3e3dd;
+    }
+  }
 }
 
 // Slider animations
@@ -104,7 +168,7 @@ body {
   height: 100vh;
   display: grid;
   grid-template-rows: 75% 1fr;
-  z-index: 2;
+  z-index: 5;
 
   &_title {
     display: flex;
@@ -163,30 +227,70 @@ body {
 .find-me {
   display: grid;
   place-items: center;
-  top: 0;
-  left: 0;
-  // padding-top: 100px;
   height: 100vh;
-  z-index: 3;
+  background-color: #000;
+
+  &_inner {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    top: 0;
+  }
 
   &_title {
-    height: 200px;
     display: flex;
     place-items: center;
     justify-content: center;
     color: white;
     font-size: 4vw;
+    opacity: 0;
+    transition: transform, opacity;
+    
+    &.show{
+      animation: show .8s forwards ease;
+
+      @keyframes show {
+        0% {
+          transform: translateY(50px);
+          opacity: 0;
+        }
+        100% {
+          transform: translateY(0);
+          opacity: 1;
+        }
+      }
+    }
+
+    &.hide {
+      animation: hide .1s forwards ease;
+    }
+
+    @keyframes hide {
+      0% {
+        transform: translateY(0px);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(50px);
+        opacity: 0;
+      }
+    }
   }
 
   &_details {
-    height: 200px;
     display: flex;
     place-items: center;
     justify-content: center;
-    color: white;
+    color: black;
     flex-flow: column;
+    z-index: 1;
   }
 }
+
+// Cursor
+// -----------------------------------------
 
 .cursor {
   position: fixed;
@@ -196,7 +300,7 @@ body {
   width: 1px;
   height: 1px;
   top: 50%;
-  right: 50%;
+  left: 50%;
   // transition: transform .2s ease, opacity .2s ease, border-color .2s ease, background-color .2s ease;
   pointer-events: none;
   z-index: 9;
