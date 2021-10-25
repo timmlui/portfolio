@@ -113,7 +113,7 @@ function App() {
     // To handle the hidden content to show when spotlight hovers over.
     if (isIntersectDetails) {
       cursor.current.style.mixBlendMode = "normal";
-      cursor.current.style.zIndex = 0;
+      cursor.current.style.zIndex = 1;
     } else {
       cursor.current.style.mixBlendMode = "difference";
       cursor.current.style.zIndex = 9;
@@ -181,12 +181,16 @@ function App() {
           // console.log('intersecting find-me')
           findMeTitle.current.classList.remove('hide');
           findMeTitle.current.classList.add('show');
+          findMeDetails.current.classList.remove('hide')
+          findMeDetails.current.classList.add('show')
         } else {
           // console.log('NOT intersecting find-me')
           if (findMeTitle.current.classList.contains('show')) {
             findMeTitle.current.classList.remove('show');
             findMeTitle.current.classList.add('hide');
           }
+          findMeDetails.current.classList.remove('show')
+          findMeDetails.current.classList.add('hide')
         }
       });
     }
@@ -204,7 +208,9 @@ function App() {
           <a class="resume-link" href="/resume">Resume</a>
         </div>
       </div> */}
-      <NamePlateSVG />
+      <div class="name-plate-container">
+        <NamePlateSVG />
+      </div>
       <div class="technicals">
         <div class="technicals_title">
           <a class="resume-link" href="/resume">Resume</a>
