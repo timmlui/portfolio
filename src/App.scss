@@ -1,6 +1,7 @@
 @import url("https://cdn.jsdelivr.net/gh/devicons/devicon@v2.14.0/devicon.min.css");
 
 * {
+  --bg-color: #e3e3dd;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -40,7 +41,7 @@ body {
     grid-column-start: 2;
     justify-self: start;
     text-decoration: none;
-    color: #fff;
+    color: var(--bg-color);
     align-self: center;
   }
 
@@ -86,7 +87,7 @@ body {
       background-color: #2c71f6;
       padding: 0 10px 0 10px;
       padding-top: 7px;
-      color: #fff;
+      color: var(--bg-color);
     }
   }
 }
@@ -104,7 +105,7 @@ body {
 
 
   #name-svg {
-    animation: line-fill 0.5s ease forwards 3.5s;
+    animation: line-fill 2s ease forwards 4s;
 
     path:nth-child(1) { // T
       animation: line-anim 2s ease forwards .6s;
@@ -150,7 +151,7 @@ body {
       fill: transparent;
     }
     to {
-      fill: #e3e3dd;
+      fill: var(--bg-color);
     }
   }
 }
@@ -159,13 +160,18 @@ body {
 // -----------------------------------------
 
 .technicals {
+  --icon-num: 16;
+  --icon-width: 100px;
+  --icon-height: 125px;
+  --scroll-speed: 10s;
+
   width: 100%;
+  height: 100vh;
   position: relative;
-  background-color: #e3e3dd;
+  background-color: var(--bg-color);
   text-align: center;
   // padding-top: 20px;
   line-height: 32px;
-  height: 100vh;
   display: grid;
   grid-template-rows: 75% 1fr;
   z-index: 5;
@@ -179,24 +185,42 @@ body {
 
   .slider-container {
     width: inherit;
+    overflow: hidden;
 
     .slider {
-      overflow: hidden;
-      position: absolute;
-      width: inherit;
-      background-color: #e3e3dd;
-      // padding: 50px 0 50px 0;
+      background-color: var(--bg-color);
+      position: relative;
+
+      &::before, &::after {
+        content: '';
+        position: absolute;
+        width: 100px;
+        height: var(--icon-height);
+        background: linear-gradient(to right, var(--bg-color) 0%, rgba(255,255,255,0) 100%);
+        z-index: 2;
+      }
+
+      &::before {
+        top: 0;
+        left: 0;
+      }
+
+      &::after {
+        top: 0;
+        right: 0;
+        transform: rotateZ(180deg);
+      }
     }
     
     .slider .slider-track {
       display: flex;
-      width: calc(100px * 15 * 2);
-      animation: scroll 10s infinite linear;
+      width: calc(var(--icon-width) * var(--icon-num) * 2);
+      animation: scroll var(--scroll-speed) infinite linear;
     }
     
     .slide {
-      width: 100px;
-      height: 125px;
+      width: var(--icon-width);
+      height: var(--icon-height);
       display: flex;
       align-items: center;
       flex-direction: column;
@@ -204,18 +228,11 @@ body {
       span {
         margin-bottom: 10px;
       }
-    
-      svg {
-        width: 100%;
-      }
     }
     
     @keyframes scroll {
-      0% {
-        transform: translateX(0%);
-      }
-      100% {
-        transform: translateX(calc(-100px * 15));
+      to {
+        transform: translateX(calc(-1 * var(--icon-width) * var(--icon-num)));
       }
     }
   }
@@ -230,7 +247,7 @@ body {
   height: 100vh;
   background-color: #000;
 
-  &_inner {
+  .find-me_inner {
     width: 100%;
     height: 100%;
     position: fixed;
@@ -239,12 +256,12 @@ body {
     top: 0;
   }
 
-  &_title {
+  .find-me_title {
     display: flex;
     place-items: center;
     justify-content: center;
-    color: white;
-    font-size: 4vw;
+    color: var(--bg-color);
+    font-size: 5vw;
     opacity: 0;
     transition: transform, opacity;
     
@@ -279,13 +296,23 @@ body {
     }
   }
 
-  &_details {
+  .find-me_details-container {
+    position: relative;
     display: flex;
     place-items: center;
     justify-content: center;
-    color: black;
-    flex-flow: column;
-    z-index: 1;
+
+    .find-me_details {
+      position: absolute;
+      display: flex;
+      flex-flow: column;
+      color: black;
+      z-index: 1;
+
+      a {
+        color: black;
+      }
+    }
   }
 }
 
@@ -307,7 +334,7 @@ body {
 
   &.inverted {
     &-active {
-      background: #fff;
+      background: var(--bg-color);
       mix-blend-mode: difference;
       animation: grow .5s, pulse 1s infinite .5s;
     }
@@ -317,33 +344,29 @@ body {
     }
   
     @keyframes grow {
-      0% {
-        transform: scale(1);
-      }
-      100% {
-        transform: scale(200);
+      to {
+        transform: scale(300);
       }
     }
 
     @keyframes shrink {
-      0% {
-        transform: scale(200);
+      from {
+        transform: scale(300);
       }
-      100% {
+      to {
         transform: scale(0);
-        background: #1c1c21;
       }
     }
     
     @keyframes pulse {
       0% {
-        transform: scale(200);
+        transform: scale(300);
       }
       50% {
-        transform: scale(250);
+        transform: scale(350);
       }
       100% {
-        transform: scale(200);
+        transform: scale(300);
       }
     }
   }

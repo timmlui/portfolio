@@ -2,11 +2,11 @@ import React from "react";
 
 function NamePlateSVG(props) {
   return (
-    <div class="name-plate fixed">
+    <div class="name-plate">
       <svg
         id="name-svg"
-        width="869"
-        height="105"
+        width="40vw"
+        height="100"
         viewBox="0 0 869 105"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"

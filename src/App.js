@@ -14,7 +14,6 @@ function App() {
   const [data, setData] = useState({});
   const [svgs, setSvgs] = useState({});
   const [intersect, setIntersect] = useState(false);
-  const namePlate = useRef(null);
   // const pathEl = useRef(null);
   const cursor = useRef(null);
   const findMe = useRef(null);
@@ -37,18 +36,22 @@ function App() {
 
     // Reset to top of the page upon reload.
     window.addEventListener('beforeunload', () => {
-      namePlate.current.scrollIntoView();
+      document.body.scrollTop = document.docuementElement.scrollTop = 0;
     });
 
     // _handleAnimation();
     const name = document.querySelectorAll('#name-svg path');
     name.forEach((letter, index) => {
-      console.log(index, letter.getTotalLength(), letter.style);
+      // console.log(index, letter.getTotalLength(), letter.style);
       letter.style.strokeDasharray = letter.getTotalLength();
       letter.style.strokeDashoffset = letter.getTotalLength();
     });
 
     _handleParallax();
+
+    return () => {
+      window.removeEventListener('beforeunload');
+    }
   }, []);
 
   useEffect(() => {
@@ -130,7 +133,7 @@ function App() {
     ));
 
     // Needed for the illusion of an infinite scroll
-    const duplicated = [...slides, ...slides];
+    const duplicated = [...slides, ...slides, ...slides];
 
     return (
       <React.Fragment>
@@ -175,11 +178,11 @@ function App() {
     const intersectionCallback = (entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          console.log('intersecting find-me')
+          // console.log('intersecting find-me')
           findMeTitle.current.classList.remove('hide');
           findMeTitle.current.classList.add('show');
         } else {
-          console.log('NOT intersecting find-me')
+          // console.log('NOT intersecting find-me')
           if (findMeTitle.current.classList.contains('show')) {
             findMeTitle.current.classList.remove('show');
             findMeTitle.current.classList.add('hide');
@@ -194,17 +197,17 @@ function App() {
 
   return (
     <div class="container">
-      <div class="header-nav">
+      {/* <div class="header-nav">
         <a class="logo" href="/#">TL.</a>
         <div class="resume-container">
           <div class="blob"></div>
           <a class="resume-link" href="/resume">Resume</a>
         </div>
-      </div>
-      <NamePlateSVG ref={namePlate}></NamePlateSVG>
+      </div> */}
+      <NamePlateSVG />
       <div class="technicals">
         <div class="technicals_title">
-          <span>github link</span>
+          <a class="resume-link" href="/resume">Resume</a>
         </div>
         <div class="slider-container">
           <div class="slider">
@@ -220,12 +223,13 @@ function App() {
           <span class="find-me_title" ref={findMeTitle}>
             FIND ME
           </span>
-          <span class="find-me_details" ref={findMeDetails}>
-            <a href="lui.timm@gmail.com">lui.timm@gmail.com</a>
-            <span>github link</span>
-            <span>phone num</span>
-            <img src={black} width="100" height="100" alt="asdf" />
-          </span>
+          <div class="find-me_details-container">
+            <span class="find-me_details" ref={findMeDetails}>
+              <a href="lui.timm@gmail.com">lui.timm@gmail.com</a>
+              <a href="www.github.com">github link</a>
+              <img src={black} width="100" height="100" alt="asdf" />
+            </span>
+          </div>
         </div>
       </div>
     </div>
