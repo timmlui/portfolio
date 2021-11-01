@@ -1,17 +1,17 @@
 /* eslint-disable jsx-a11y/alt-text */
 import React, { useEffect, useState, useRef } from 'react';
 
-import Slide from './components/Slide';
+import Particles from 'react-particles-js';
 import NamePlateSVG from './components/NamePlateSVG';
-
-import { sortColors } from './sortColors';
-
+import Slide from './components/Slide';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import registerIcons from "./__helpers__/FontAwesome";
+import { sortColors } from './__helpers__/sortColors';
 import './App.scss';
 
-import black from "./assets/img/black.jpeg";
+registerIcons();
 
 function App() {
-  const [data, setData] = useState({});
   const [svgs, setSvgs] = useState({});
   const [intersect, setIntersect] = useState(false);
   // const pathEl = useRef(null);
@@ -25,9 +25,7 @@ function App() {
    * On Mount events to run. Pulling JSON data, eventlisteners, initial setups.
    */
   useEffect(() => {
-    const data = require('./data.json');
-    setData(data);
-    const svgs = require('./svg.json');
+    const svgs = require('./__data__/tech-stack-svg-info.json');
     setSvgs(svgs);
 
     // Event Listeners - mouse movement.
@@ -133,7 +131,8 @@ function App() {
     ));
 
     // Needed for the illusion of an infinite scroll
-    const duplicated = [...slides, ...slides, ...slides];
+    // const duplicated = [...slides, ...slides, ...slides];
+    const duplicated = Array(5).fill(slides);
 
     return (
       <React.Fragment>
@@ -141,28 +140,6 @@ function App() {
       </React.Fragment>
     )
   }
-
-  /**
-   * Initial idea to use a single svg path for cursive written text for name plate.
-   */
-  // const _handleAnimation = () => {
-  //   const path = pathEl.current;
-  //   const length = path.getTotalLength();
-
-  //   // Clear any previous transition
-  //   path.style.transition = path.style.WebkitTransition = 'none';
-  //   // Set up the starting positions
-  //   path.style.strokeDasharray = length + ' ' + length;
-  //   path.style.strokeDashoffset = length;
-  //   // Trigger a layout so styles are calculated & the browser
-  //   // picks up the starting position before animating
-  //   path.getBoundingClientRect();
-  //   // Define our transition
-  //   path.style.transition = path.style.WebkitTransition =
-  //     'stroke-dashoffset 2s ease-in-out';
-  //   // Go!
-  //   path.style.strokeDashoffset = '0';
-  // }
 
   /**
    * Parallax effect for when the Find-Me section is visible.
@@ -199,22 +176,68 @@ function App() {
     observer.observe(target);
   }
 
+  const particlesOptions = {
+    "particles": {
+      "number": {
+        "value": 160,
+        "density": {
+            "enable": false
+        }
+      },
+      "size": {
+        "value": 3,
+        "random": true,
+        "anim": {
+            "speed": 4,
+            "size_min": 0.3
+        }
+      },
+      "line_linked": {
+        "enable": false
+      },
+      "move": {
+        "random": true,
+        "speed": 1,
+        "direction": "top",
+        "out_mode": "out"
+      }
+    },
+    "interactivity": {
+      "events": {
+        "onhover": {
+          "enable": true,
+          "mode": "bubble"
+        },
+        "onclick": {
+          "enable": true,
+          "mode": "repulse"
+        }
+      },
+      "modes": {
+        "bubble": {
+          "distance": 250,
+          "duration": 2,
+          "size": 0,
+          "opacity": 0
+        },
+        "repulse": {
+          "distance": 400,
+          "duration": 4
+        }
+      }
+    }
+  };
+
   return (
     <div class="container">
-      {/* <div class="header-nav">
-        <a class="logo" href="/#">TL.</a>
-        <div class="resume-container">
-          <div class="blob"></div>
-          <a class="resume-link" href="/resume">Resume</a>
-        </div>
-      </div> */}
       <div class="name-plate-container">
         <NamePlateSVG />
       </div>
+      <Particles className="particles-wrapper" params={particlesOptions} />
       <div class="technicals">
-        <div class="technicals_title">
-          <a class="resume-link" href="/resume">Resume</a>
-        </div>
+        <span class="technicals_title">
+          Tech Stack
+        </span>
         <div class="slider-container">
           <div class="slider">
             <div class="slider-track">
@@ -230,14 +253,38 @@ function App() {
             FIND ME
           </span>
           <div class="find-me_details-container">
-            <span class="find-me_details" ref={findMeDetails}>
-              <a href="lui.timm@gmail.com">lui.timm@gmail.com</a>
-              <a href="www.github.com">github link</a>
-              <img src={black} width="100" height="100" alt="asdf" />
-            </span>
+            <div class="find-me_details" ref={findMeDetails}>
+              <div className="button">
+                <a className="github-cta" href="https://github.com/timmlui" target="_self" rel="noopener noreferrer">
+                  <FontAwesomeIcon className="icon" icon={["fab", "github"]} size="3x" />
+                  <span className="icon_title">Github</span>
+                </a>
+              </div>
+              <div className="button">
+                <a className="linkedin-cta" href="https://www.linkedin.com/in/timothy-lui-1b8638170" target="_self" rel="noopener noreferrer">
+                  <FontAwesomeIcon className="icon" icon={["fab", "linkedin"]} size="3x" />
+                  <span className="icon_title">LinkedIn</span>
+                </a>
+              </div>
+              <div className="button">
+                <a className="resume-cta" href="/resume" target="_self" rel="noopener noreferrer">
+                  <FontAwesomeIcon className="icon" icon={["fas", "file-alt"]} size="3x" />
+                  <span className="icon_title">Resume</span>
+                </a>
+              </div>
+              <div className="button">
+                <a className="email-cta" href="mailto:lui.timm@gmail.com" target="_self" rel="noopener noreferrer">
+                  <FontAwesomeIcon className="icon" icon={["fas", "paper-plane"]} size="3x" />
+                  <span className="icon_title">Email Me</span>
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </div>
+      <footer>
+        {/* <a href="https://icons8.com/icon/j69Y0yZaV6Ny/secured-letter">Secured Letter icon by Icons8</a> */}
+      </footer>
     </div>
   )
 }
