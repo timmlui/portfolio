@@ -8,6 +8,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import registerIcons from "./__helpers__/FontAwesome";
 import { sortColors } from './__helpers__/sortColors';
 import './App.scss';
+import resumePdf from './Timothy_Lui_Resume_2021.pdf';
 
 registerIcons();
 
@@ -266,7 +267,7 @@ function App() {
                 </a>
               </div>
               <div className="button">
-                <a className="resume-cta" href="/resume" target="_self" rel="noopener noreferrer">
+                <a className="resume-cta" href={resumePdf} target="_blank" rel="noopener noreferrer">
                   <FontAwesomeIcon className="icon" icon={["fas", "file-alt"]} size="3x" />
                   <span className="icon_title">Resume</span>
                 </a>
