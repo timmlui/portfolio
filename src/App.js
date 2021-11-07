@@ -34,7 +34,7 @@ function App() {
 
     // Reset to top of the page upon reload.
     window.addEventListener('beforeunload', () => {
-      document.body.scrollTop = document.docuementElement.scrollTop = 0;
+      window.scrollTo(0,0);
     });
 
     // _handleAnimation();
@@ -131,7 +131,6 @@ function App() {
     ));
 
     // Needed for the illusion of an infinite scroll
-    // const duplicated = [...slides, ...slides, ...slides];
     const duplicated = Array(5).fill(slides);
 
     return (
@@ -283,7 +282,7 @@ function App() {
         </div>
       </div>
       <footer>
-        {/* <a href="https://icons8.com/icon/j69Y0yZaV6Ny/secured-letter">Secured Letter icon by Icons8</a> */}
+        Timothy Lui 2021.
       </footer>
     </div>
   )

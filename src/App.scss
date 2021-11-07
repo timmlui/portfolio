@@ -10,7 +10,7 @@
 }
 
 html {
-  scroll-behavior: smooth;
+  // scroll-behavior: smooth;
 }
 
 body {
@@ -355,6 +355,7 @@ body {
 
   &:hover .icon_title {
     display: initial;
+    color: #fff;
   }
 
   &:hover .icon {
